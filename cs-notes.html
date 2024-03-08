@@ -53,7 +53,6 @@
               type="submit"
               title="Donate with PayPal"
               value="donate here."
-              data-umami-event="donation"
             />
           </form>
         </span>
@@ -68,6 +67,12 @@
         link.download = "computer_science_2.pdf";
         link.click();
       });
+
+      document
+        .getElementsByTagName("form")[0]
+        .addEventListener("submit", () => {
+          window.umami.track("donate");
+        });
     </script>
   </body>
 </html>
